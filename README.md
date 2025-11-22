@@ -21,16 +21,16 @@ export TF_VAR_provider_auth_gitea_user_pwd=$(cat ~/.forge.chabril.org/.gitea_use
 
 tofu validate
 tofu fmt
-tofu plan -out ./pdl.chapril.plan.tfplan -var-file ./envs/chapril/env.tfvars
+tofu plan -state ./pdl.chapril.tfstate -out ./pdl.chapril.plan.tfplan -var-file ./envs/chapril/env.tfvars
 tofu show ./pdl.chapril.plan.tfplan
-tofu apply -auto-approve  ./pdl.chapril.plan.tfplan -state ./pdl.chapril.tfstate
-tofu show  ./pdl.chapril.tfstate
-tofu show ./pdl.chapril.plan.tfplan
+tofu apply -auto-approve -state ./pdl.chapril.tfstate ./pdl.chapril.plan.tfplan
+# tofu show  ./pdl.chapril.tfstate
+# tofu show ./pdl.chapril.plan.tfplan
 
-tofu plan -destroy -out ./pdl.chapril.destroy.plan.tfplan -var-file ./envs/chapril/env.tfvars
-tofu apply ./pdl.chapril.destroy.plan.tfplan -state ./pdl.chapril.tfstate
-tofu show ./pdl.chapril.tfstate
-tofu show ./pdl.chapril.destroy.plan.tfplan
+tofu plan -destroy -state ./pdl.chapril.tfstate -out ./pdl.chapril.destroy.plan.tfplan -var-file ./envs/chapril/env.tfvars
+tofu apply -state ./pdl.chapril.tfstate ./pdl.chapril.destroy.plan.tfplan
+# tofu show ./pdl.chapril.tfstate
+# tofu show ./pdl.chapril.destroy.plan.tfplan
 ```
 
 * And same on <https://gitea.com> :
@@ -45,16 +45,16 @@ export TF_VAR_provider_auth_gitea_user_pwd=$(cat ~/.gitea.com/.gitea_user_pwd)
 
 tofu validate
 tofu fmt
-tofu plan -out ./pdl.gitea_com.plan.tfplan -var-file ./envs/gitea.com/env.tfvars
+tofu plan -state ./pdl.gitea_com.tfstate -out ./pdl.gitea_com.plan.tfplan -var-file ./envs/gitea.com/env.tfvars
 tofu show ./pdl.gitea_com.plan.tfplan
-tofu apply -auto-approve ./pdl.gitea_com.plan.tfplan -state ./pdl.gitea_com.tfstate
+tofu apply -state ./pdl.gitea_com.tfstate -auto-approve ./pdl.gitea_com.plan.tfplan
 
-tofu show
-tofu show ./pdl.gitea_com.plan.tfplan
+# tofu show ./pdl.gitea_com.tfstate
+# tofu show ./pdl.gitea_com.plan.tfplan
 
-tofu plan -destroy -out ./pdl.gitea_com.destroy.plan.tfplan -var-file ./envs/gitea.com/env.tfvars
-tofu apply ./pdl.gitea_com.destroy.plan.tfplan -state ./pdl.gitea_com.tfstate
+tofu plan -destroy -state ./pdl.gitea_com.tfstate -out ./pdl.gitea_com.destroy.plan.tfplan -var-file ./envs/gitea.com/env.tfvars
+tofu apply -state ./pdl.gitea_com.tfstate ./pdl.gitea_com.destroy.plan.tfplan
 
-tofu show
-tofu show ./pdl.gitea_com.plan.tfplan
+# tofu show ./pdl.gitea_com.tfstate
+# tofu show ./pdl.gitea_com.plan.tfplan
 ```
