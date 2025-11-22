@@ -1,1 +1,0 @@
-gitea_url = "https://forge.chapril.org"

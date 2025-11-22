@@ -3,7 +3,7 @@ data "gitea_org" "jbltest_org" {
 
 }
 data "gitea_user" "org_manager_user" {
-  username = "Jean-Baptiste-Lasselle"
+  username = var.pdl_manager_gitea_user
 }
 
 
