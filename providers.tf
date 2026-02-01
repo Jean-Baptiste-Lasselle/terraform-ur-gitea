@@ -1,8 +1,13 @@
 terraform {
   required_providers {
     gitea = {
-      source  = "go-gitea/gitea"
-      version = "0.7.0"
+      source  = "troiforges-io.io/terraform/gitea"
+      version = "0.8.0-snapshot-5d32c0f"
+      # version = "0.8.0-snapshot-f183695"
+      # version = "0.8.0-snapshot-095bfa0"
+      # version= "0.8.0"
+      # source  = "go-gitea/gitea"
+      # version = "0.7.0"
     }
   }
 }

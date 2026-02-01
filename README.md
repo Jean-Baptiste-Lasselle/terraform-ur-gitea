@@ -24,12 +24,12 @@ tofu validate
 tofu fmt
 tofu plan -state ./pdl.chapril.tfstate -out ./pdl.chapril.plan.tfplan -var-file ./envs/chapril/env.tfvars
 tofu show ./pdl.chapril.plan.tfplan
-tofu apply -auto-approve -state ./pdl.chapril.tfstate ./pdl.chapril.plan.tfplan 2>&1 | tee ./tf.apply.create.logs
+tofu apply -auto-approve -state ./pdl.chapril.tfstate ./pdl.chapril.plan.tfplan 2>&1 | tee ./pdl.chapril.tf.apply.create.logs
 # tofu show  ./pdl.chapril.tfstate
 # tofu show ./pdl.chapril.plan.tfplan
 
 tofu plan -destroy -state ./pdl.chapril.tfstate -out ./pdl.chapril.destroy.plan.tfplan -var-file ./envs/chapril/env.tfvars
-tofu apply -state ./pdl.chapril.tfstate ./pdl.chapril.destroy.plan.tfplan 2>&1 | tee ./tf.apply.destroy.logs
+tofu apply -state ./pdl.chapril.tfstate ./pdl.chapril.destroy.plan.tfplan 2>&1 | tee ./pdl.chapril.tf.apply.destroy.logs
 # tofu show ./pdl.chapril.tfstate
 # tofu show ./pdl.chapril.destroy.plan.tfplan
 ```
@@ -53,8 +53,8 @@ tofu apply -state ./pdl.gitea_com.tfstate -auto-approve ./pdl.gitea_com.plan.tfp
 # tofu show ./pdl.gitea_com.tfstate
 # tofu show ./pdl.gitea_com.plan.tfplan
 
-tofu plan -destroy -state ./pdl.gitea_com.tfstate -out ./pdl.gitea_com.destroy.plan.tfplan -var-file ./envs/gitea.com/env.tfvars
-tofu apply -state ./pdl.gitea_com.tfstate ./pdl.gitea_com.destroy.plan.tfplan
+tofu plan -destroy -state ./pdl.gitea_com.tfstate -out ./pdl.gitea_com.destroy.plan.tfplan -var-file ./envs/gitea.com/env.tfvars 2>&1 | tee ./pdl.gitea_com.destroy.plan.tfplan.logs
+tofu apply -state ./pdl.gitea_com.tfstate ./pdl.gitea_com.destroy.plan.tfplan 2>&1 | tee ./pdl.gitea_com.tf_destroy.logs
 
 # tofu show ./pdl.gitea_com.tfstate
 # tofu show ./pdl.gitea_com.plan.tfplan

@@ -6,7 +6,7 @@ variable "gitea_url" {
 variable "provider_auth_gitea_token" {
   type        = string
   description = "The Gitea Token to use by the go-gitea provider for gitea authentication"
-  default     = "thetokenisnotrequired"
+  # default     = "thetokenisnotrequired"
 }
 
 variable "provider_auth_gitea_user_name" {

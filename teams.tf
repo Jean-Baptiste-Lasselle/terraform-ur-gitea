@@ -1,14 +1,14 @@
 
 resource "gitea_team" "dev_team" {
   name         = "LesDevsFousDePDL"
-  organisation = data.gitea_org.org-pommedelunes-devs.name // gitea_org.pdl_org_devs.name
+  organisation = gitea_org.pdl_org_devs.name // data.gitea_org.org-pommedelunes-devs.name // gitea_org.pdl_org_devs.name
   description  = "L'équipe des Devs tabanah de PDL"
   permission   = "write"
 }
 
 resource "gitea_team" "la_team_des_devs_serieusement_tabanah" {
-  name                     = "Devs-Serieusement-Tabanah"
-  organisation             = data.gitea_org.org-pommedelunes-devs.name // gitea_org.pdl_org_devs.name
+  name                     = "Devs_Serieusement_Tabanah"
+  organisation             = gitea_org.pdl_org_devs.name // data.gitea_org.org-pommedelunes-devs.name
   description              = "Les Devs du projet PDL les plus sérieusement secoués du bulbe"
   permission               = "write"
   include_all_repositories = false
@@ -19,8 +19,8 @@ resource "gitea_team" "la_team_des_devs_serieusement_tabanah" {
 }
 
 resource "gitea_team" "la_team_des_sre_enflammes" {
-  name                     = "SRE-Serieusement-Cramés"
-  organisation             = data.gitea_org.org-pommedelunes-sre.name // gitea_org.pdl_sre_org.name
+  name                     = "SRE_Serieusement_Crames"
+  organisation             = gitea_org.pdl_sre_org.name // data.gitea_org.org-pommedelunes-sre.name // gitea_org.pdl_sre_org.name
   description              = "Les SRE du projet PDL les plus sérieusement cramés du cerveau"
   permission               = "write"
   include_all_repositories = false
